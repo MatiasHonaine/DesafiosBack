@@ -1,7 +1,7 @@
 class ProductManager {
     constructor() {
-        this.patch = "./productos.txt"
-        this.productos = []
+        this.path = "./productos.txt"
+        this.products = []
     }
 
     static id = 0
@@ -22,21 +22,21 @@ class ProductManager {
         }
 
 
-        this.productos.push(newProduct)
+        this.products.push(newProduct)
 
-        await fs.writeFile(this.patch, JSON.stringify(this.productos))
+        await fs.writeFile(this.path, JSON.stringify(this.products))
     }
 
 
     readProducts = async () => {
-        let respuesta = await fs.readFile(this.patch, "utf-8")
+        let respuesta = await fs.readFile(this.path, "utf-8")
         return JSON.parse(respuesta)
     }
 
 
     getProducts = async () => {
-        let respuesta2 = await this.readProducts()
-        return console.log(respuesta2)
+        let respuesta2 = await fs.readFile(this.path, "utf-8")
+        return JSON.parse(respuesta2)
     }
 
     getProductsById = async (id) => {
@@ -55,7 +55,7 @@ class ProductManager {
         let respuesta3 = await this.readProducts()
         let productFilter = respuesta3.filter(productos => productos.id != id)
 
-        await fs.writeFile(this.patch, JSON.stringify(productFilter))
+        await fs.writeFile(this.path, JSON.stringify(productFilter))
         console.log("producto eliminado")
     }
 
@@ -68,7 +68,7 @@ class ProductManager {
         let productsModif = [
             { ...producto, id }, ...productOld]
 
-        await fs.writeFile(this.patch, JSON.stringify(productsModif))
+        await fs.writeFile(this.path, JSON.stringify(productsModif))
 
     }
 }
