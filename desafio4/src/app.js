@@ -2,10 +2,10 @@ import express from "express";
 import routerCart from "./Routes/carts.routes.js";
 import routerProd from "./Routes/productos.routes.js";
 
-const express = require("express");
+const express = import("express");
 const PORT = 8080;
 const app = express();
-const exphbs = require("express-handlebars");
+const exphbs = import("express-handlebars");
 
 
 app.use(express.json());
@@ -39,7 +39,7 @@ const httpServer = app.listen(PUERTO, () => {
 });
 
 //array de productos: 
-const ProductManager = require("./controllers/Products-Manager.js");
+const ProductManager = import ("./controllers/Products-Manager.js");
 const productManager = new ProductManager("./src/models/products.json");
 
 //server de Socket.io
