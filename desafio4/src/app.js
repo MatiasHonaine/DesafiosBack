@@ -17,7 +17,7 @@ app.set("view engine", "handlebars");
 app.set("views", "./src/views");
 
 // Rutas para productos y carritos
-app.use("/api/products", routerProd);
+app.use("/api/productos", routerProd);
 app.use("/api/carts", routerCart);
 app.use("/", viewsRouter);
 

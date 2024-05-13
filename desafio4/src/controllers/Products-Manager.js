@@ -85,10 +85,10 @@ class ProductManager {
         await this.saveProducts();
     };
 
-
+    
 };
-
 
 
 const productManager = new ProductManager();
 
+export default class ProductsManager{}
