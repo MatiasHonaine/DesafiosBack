@@ -1,18 +1,12 @@
-const express = import("express");
-const router = express.Rputer();
+import { Router } from "express";
 
-router.get("/", (req, res) => {
+const viwRouter = Router();
+viwRouter.get("/", (req, res) => {
     res.render("index");
 });
 
-router.get("/", async (req, res) => {
-    try {
-        const productos = await productManager.getProducts;
-        res.render("home", { productos })
-
-    } catch (error) {
-
-    }
+viwRouter.get("/realtimeproducts", async (req, res) => {
+    res.render('realtimeproducts', {})
 })
 
-module.exports = router;
+export default viwRouter
